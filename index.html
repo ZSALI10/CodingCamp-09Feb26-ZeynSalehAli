@@ -1,12 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Website</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Hello</h1>
-    <p>nama saya zeyn saleh ali</p>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">ZSA<span>.</span></div>
+            <nav>
+                <a href="#home" class="active">Home</a>
+                <a href="#profile">Profile</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#message">Message Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <div class="text-col">
+                <h1>Hi <span id="user-name">Harfi</span>, Welcome To My Website</h1>
+                <p>Ini adalah website latihan pertama saya sebagai langkah awal menjadi Web Developer profesional.</p>
+                <a href="#message" class="cta-button">Hubungi Saya</a>
+            </div>
+            <div class="image-col">
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/400x300/3d5af1/ffffff?text=Harfi's+Photo" alt="Profile Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="hq-section">
+        <div class="container">
+            <h2>Our Headquarter</h2>
+            <p class="subtitle">Lokasi dan basis operasional kami saat ini</p>
+            
+            <div class="hq-grid">
+                <div class="hq-card">
+                    <div class="circle-icon">JKT</div>
+                    <h3>Jakarta</h3>
+                    <p>Main Office</p>
+                </div>
+                <div class="hq-card">
+                    <div class="circle-icon">BDG</div>
+                    <h3>Bandung</h3>
+                    <p>Creative Hub</p>
+                </div>
+                <div class="hq-card">
+                    <div class="circle-icon">SBY</div>
+                    <h3>Surabaya</h3>
+                    <p>Tech Center</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="message" class="message-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Message Us</h2>
+                <p>Kirimkan pesan atau feedback anda di bawah ini</p>
+            </div>
+            
+            <div class="message-wrapper">
+                <div class="form-box">
+                    <form name="message-form" id="contactForm">
+                        <div class="input-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" placeholder="Masukkan nama anda..." required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="tanggal">Tanggal Lahir</label>
+                            <input type="date" id="tanggal" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Jenis Kelamin</label>
+                            <div class="radio-options">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Laki-Laki" checked> Laki-Laki
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Perempuan"> Perempuan
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="pesan">Pesan</label>
+                            <textarea id="pesan" rows="4" placeholder="Apa yang ingin anda sampaikan?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+
+                <div class="result-box">
+                    <div class="time-display">
+                        <small>Current Time:</small>
+                        <h4 id="current-time">-- : -- : --</h4>
+                    </div>
+                    
+                    <div id="result-container" class="result-details hidden">
+                        <h3>Data Terkirim:</h3>
+                        <div class="detail-item">
+                            <span>Nama:</span>
+                            <strong id="sender-full-name">-</strong>
+                        </div>
+                        <div class="detail-item">
+                            <span>Tgl Lahir:</span>
+                            <strong id="sender-birth-date">-</strong>
+                        </div>
+                        <div class="detail-item">
+                            <span>Gender:</span>
+                            <strong id="sender-gender">-</strong>
+                        </div>
+                        <div class="detail-item">
+                            <span>Pesan:</span>
+                            <p id="sender-messages">-</p>
+                        </div>
+                    </div>
+                    
+                    <div id="empty-state" class="empty-state">
+                        <p>Belum ada pesan yang dikirim.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Created by <strong>Zeyn Saleh Ali</strong>
+            <br>
+            <p>@zeeynsa</p> </p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
