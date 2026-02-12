@@ -4,144 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <div class="logo">ZSA<span>.</span></div>
-            <nav>
-                <a href="#home" class="active">Home</a>
-                <a href="#profile">Profile</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#message">Message Us</a>
-            </nav>
+    <nav>
+        <div class="logo">Susu<span>Nusantara</span>.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Our Profile</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#headquarter">Headquarter</a></li> <li><a href="#message-us">Message Us</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
-    </header>
+    </nav>
 
-    <section id="home" class="hero-section">
-        <div class="container hero-content">
-            <div class="text-col">
-                <h1>Hi <span id="user-name">Harfi</span>, Welcome To My Website</h1>
-                <p>Ini adalah website latihan pertama saya sebagai langkah awal menjadi Web Developer profesional.</p>
-                <a href="#message" class="cta-button">Hubungi Saya</a>
-            </div>
-            <div class="image-col">
-                <div class="profile-card">
-                    <img src="https://via.placeholder.com/400x300/3d5af1/ffffff?text=Harfi's+Photo" alt="Profile Image">
-                </div>
-            </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="welcome-text">Hi <span id="user-name">User</span>, Welcome To Website</h1>
+            <p>Penyedia susu sapi berkualitas tinggi, sehat, dan halal untuk kebutuhan bisnis dan keluarga Anda.</p>
+            <a href="#profile" class="cta-btn">Tentang Kami</a>
         </div>
     </section>
 
-    <section id="profile" class="hq-section">
+    <section id="profile" class="profile-section">
         <div class="container">
-            <h2>Our Headquarter</h2>
-            <p class="subtitle">Lokasi dan basis operasional kami saat ini</p>
+            <h2 class="section-title">Our Profile</h2>
             
-            <div class="hq-grid">
-                <div class="hq-card">
-                    <div class="circle-icon">JKT</div>
-                    <h3>Jakarta</h3>
-                    <p>Main Office</p>
+            <div class="profile-banner">
+                <img src="sususapi.jpg" alt="Peternakan Ayam">
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-item about">
+                    <h3>About The Company</h3>
+                    <p style="text-align: justify;"><strong>Susu Nusantara </strong> adalah perusahaan dairy Indonesia yang berkomitmen menyediakan produk susu segar dan berkualitas tinggi bagi masyarakat di seluruh negeri. Kami bekerja sama dengan peternak lokal serta menerapkan standar pengolahan modern untuk memastikan setiap produk aman, bernutrisi, dan berkelanjutan.</p>
                 </div>
-                <div class="hq-card">
-                    <div class="circle-icon">BDG</div>
-                    <h3>Bandung</h3>
-                    <p>Creative Hub</p>
+                
+                <div class="profile-item vision">
+                    <h3>Visi</h3>
+                    <p style="text-align: justify;">Menjadi perusahaan susu terpercaya dan inovatif di Indonesia yang menghadirkan nutrisi berkelanjutan bagi setiap generasi.</p>
                 </div>
-                <div class="hq-card">
-                    <div class="circle-icon">SBY</div>
-                    <h3>Surabaya</h3>
-                    <p>Tech Center</p>
+
+                <div class="profile-item mission">
+                    <h3>Misi</h3>
+                    <ul style="text-align: justify;">
+                        <li>Menyediakan produk susu berkualitas tinggi dengan standar keamanan terbaik.</li>
+                        <li>Memberdayakan peternak lokal melalui kemitraan yang berkelanjutan.</li>
+                        <li>Mendorong pola hidup sehat melalui produk bergizi bagi masyarakat.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="message" class="message-section">
+    <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Message Us</h2>
-                <p>Kirimkan pesan atau feedback anda di bawah ini</p>
+            <h2 class="section-title">Kenapa Susu Nusantara?</h2>
+            <div class="headquarters-grid">
+                <div class="hq-card">
+                    <div class="circle-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" alt="Halal">
+                    </div>
+                    <h3>100% Halal</h3>
+                    <p></p>
+                </div>
+                <div class="hq-card">
+                    <div class="circle-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2933/2933942.png" alt="Segar">
+                    </div>
+                    <h3>Selalu Segar</h3>
+                    <p></p>
+                </div>
+                <div class="hq-card">
+                    <div class="circle-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1147/1147805.png" alt="Higienis">
+                    </div>
+                    <h3>Higienis</h3>
+                    <p></p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="headquarter" class="portfolio-section" style="background-color: #fafafa;">
+        <div class="container">
+            <h2 class="section-title">Our Headquarter</h2>
+            <div class="headquarters-grid">
+                <div class="hq-card">
+                    <div class="circle-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Jakarta">
+                    </div>
+                    <h3>Bogor</h3>
+                    <p>Pusat Distribusi Utama</p>
+                </div>
+                <div class="hq-card">
+                    <div class="circle-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Bandung">
+                    </div>
+                    <h3>Bandung</h3>
+                    <p>Cabang Jawa Barat</p>
+                </div>
+                <div class="hq-card">
+                    <div class="circle-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Surabaya">
+                    </div>
+                    <h3>Surabaya</h3>
+                    <p>Cabang Jawa Timur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="message-us" class="message-section">
+        <div class="container">
+            <h2 class="section-title">Message Us</h2>
             
             <div class="message-wrapper">
-                <div class="form-box">
-                    <form name="message-form" id="contactForm">
+                <div class="form-container">
+                    <form name="messageForm" onsubmit="return validateForm()">
                         <div class="input-group">
-                            <label for="nama">Nama Lengkap</label>
-                            <input type="text" id="nama" placeholder="Masukkan nama anda..." required>
+                            <label for="nama">Nama</label>
+                            <input type="text" id="nama" placeholder="Nama Lengkap">
                         </div>
                         
                         <div class="input-group">
                             <label for="tanggal">Tanggal Lahir</label>
-                            <input type="date" id="tanggal" required>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label>Jenis Kelamin</label>
-                            <div class="radio-options">
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" value="Laki-Laki" checked> Laki-Laki
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" value="Perempuan"> Perempuan
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="pesan">Pesan</label>
-                            <textarea id="pesan" rows="4" placeholder="Apa yang ingin anda sampaikan?" required></textarea>
+                            <input type="date" id="tanggal">
                         </div>
 
-                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                        <div class="input-group">
+                            <label>Jenis Kelamin</label>
+                            <div class="radio-group">
+                                <input type="radio" id="laki" name="gender" value="Laki-Laki">
+                                <label for="laki">Laki-Laki</label>
+                                <input type="radio" id="perempuan" name="gender" value="Perempuan">
+                                <label for="perempuan">Perempuan</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="pesan">Pesan</label>
+                            <textarea id="pesan" rows="5" placeholder="Tulis pesan Anda..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit</button>
                     </form>
                 </div>
 
-                <div class="result-box">
+                <div class="result-container">
                     <div class="time-display">
-                        <small>Current Time:</small>
-                        <h4 id="current-time">-- : -- : --</h4>
+                        Current time: <span id="current-time"></span>
                     </div>
-                    
-                    <div id="result-container" class="result-details hidden">
-                        <h3>Data Terkirim:</h3>
-                        <div class="detail-item">
-                            <span>Nama:</span>
-                            <strong id="sender-full-name">-</strong>
-                        </div>
-                        <div class="detail-item">
-                            <span>Tgl Lahir:</span>
-                            <strong id="sender-birth-date">-</strong>
-                        </div>
-                        <div class="detail-item">
-                            <span>Gender:</span>
-                            <strong id="sender-gender">-</strong>
-                        </div>
-                        <div class="detail-item">
-                            <span>Pesan:</span>
-                            <p id="sender-messages">-</p>
-                        </div>
+                    <div id="result-box" class="result-box-content">
+                        <p><strong>Nama :</strong> <span id="res-nama"></span></p>
+                        <p><strong>Tanggal Lahir :</strong> <span id="res-tanggal"></span></p>
+                        <p><strong>Jenis Kelamin :</strong> <span id="res-gender"></span></p>
+                        <p><strong>Pesan :</strong> <span id="res-pesan"></span></p>
                     </div>
-                    
-                    <div id="empty-state" class="empty-state">
-                        <p>Belum ada pesan yang dikirim.</p>
-                    </div>
+                    <p id="placeholder-text">Silakan isi formulir di samping untuk melihat hasil di sini.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Created by <strong>Zeyn Saleh Ali</strong>
-            <br>
-            <p>@zeeynsa</p> </p>
+        <p>Created By <strong>Susu Nusantara</strong> &copy; 2026</p>
     </footer>
 
     <script src="js/script.js"></script>

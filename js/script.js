@@ -1,52 +1,61 @@
-// Function untuk Real-time Clock
+// 1. WELCOME GREETING (Workflow Step 4)
+// Meminta nama user saat halaman dimuat
+document.addEventListener("DOMContentLoaded", function() {
+    let userName = prompt("Halo! Siapakah nama Anda?", "Guest");
+    
+    // Jika user klik cancel atau kosong, set default
+    if (userName === null || userName.trim() === "") {
+        userName = "Guest";
+    }
+
+    // Masukkan nama ke dalam elemen HTML
+    document.getElementById("user-name").innerText = userName;
+
+    // Menjalankan jam real-time
+    updateTime();
+    setInterval(updateTime, 1000);
+});
+
+// Fungsi Update Jam
 function updateTime() {
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    
-    // Format waktu agar sesuai lokal Indonesia
-    const timeString = now.toLocaleDateString('id-ID', options);
-    document.getElementById("current-time").textContent = timeString;
+    document.getElementById("current-time").innerText = now.toUTCString();
 }
 
-// Update waktu setiap 1 detik (1000ms)
-setInterval(updateTime, 1000);
-updateTime(); // Jalankan langsung saat load agar tidak menunggu 1 detik
+// 2. FORM VALIDATION & SUBMISSION (Workflow Step 5)
+function validateForm() {
+    // Ambil nilai dari input
+    const nama = document.forms["messageForm"]["nama"].value;
+    const tanggal = document.forms["messageForm"]["tanggal"].value;
+    const gender = document.forms["messageForm"]["gender"].value;
+    const pesan = document.forms["messageForm"]["pesan"].value;
 
-// Menangani Submit Form
-const contactForm = document.getElementById('contactForm');
+    // Validasi: Cek apakah ada yang kosong
+    if (nama == "" || tanggal == "" || gender == "" || pesan == "") {
+        alert("Mohon lengkapi semua data formulir!");
+        return false; // Mencegah submit
+    }
 
-contactForm.addEventListener('submit', function(event) {
-    // Mencegah halaman reload
-    event.preventDefault();
-
-    // 1. Ambil nilai dari input
-    const nama = document.getElementById('nama').value;
-    const tanggal = document.getElementById('tanggal').value;
-    const gender = document.querySelector('input[name="gender"]:checked').value;
-    const pesan = document.getElementById('pesan').value;
-
-    // 2. Masukkan nilai ke dalam elemen Result Box
-    document.getElementById('sender-full-name').textContent = nama;
-    document.getElementById('sender-birth-date').textContent = tanggal;
-    document.getElementById('sender-gender').textContent = gender;
-    document.getElementById('sender-messages').textContent = pesan;
-
-    // 3. Logika Tampilan (UI Logic)
-    // Sembunyikan "Empty State" dan Tampilkan "Result Container"
-    document.getElementById('empty-state').style.display = 'none';
-    const resultContainer = document.getElementById('result-container');
-    resultContainer.classList.remove('hidden');
+    // Jika valid, tampilkan data di result box
+    showResult(nama, tanggal, gender, pesan);
     
-    // Animasi simple (fade in effect via CSS styling flow)
-    resultContainer.style.opacity = 0;
-    setTimeout(() => {
-        resultContainer.style.transition = 'opacity 0.5s';
-        resultContainer.style.opacity = 1;
-    }, 50);
+    // Mencegah form reload halaman (default behavior form submit)
+    return false; 
+}
 
-    // Reset Form (Opsional, jika ingin form bersih setelah submit)
-    // contactForm.reset(); 
+function showResult(nama, tanggal, gender, pesan) {
+    // Sembunyikan text placeholder
+    document.getElementById("placeholder-text").style.display = "none";
     
-    // Alert sukses sederhana
-    alert("Terima kasih " + nama + ", pesan anda telah kami terima!");
-});
+    // Tampilkan box hasil
+    const resultBox = document.getElementById("result-box");
+    resultBox.style.display = "block";
+
+    // Isi data ke dalam HTML
+    document.getElementById("res-nama").innerText = nama;
+    document.getElementById("res-tanggal").innerText = tanggal;
+    document.getElementById("res-gender").innerText = gender;
+    document.getElementById("res-pesan").innerText = pesan;
+
+    alert("Pesan Anda berhasil dikirim! Silakan cek kotak di sebelah kanan (atau bawah pada mobile).");
+}
