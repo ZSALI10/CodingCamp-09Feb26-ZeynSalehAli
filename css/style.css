@@ -7,16 +7,37 @@
 }
 
 :root {
-    --primary-color: #ff8c00; /* Warna Oranye Ayam */
+    --primary-color: #ff8c00; 
     --secondary-color: #333;
     --light-bg: #f4f4f4;
     --white: #ffffff;
+}
+
+html {
+    /* Membuat scroll navbar menjadi smooth */
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--white);
     color: var(--secondary-color);
     line-height: 1.6;
+    /* Mencegah overflow horizontal saat animasi masuk */
+    overflow-x: hidden; 
+}
+
+/* --- ANIMATION CLASSES --- */
+/* Keadaan awal elemen sebelum terlihat (invisible & turun sedikit) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out; /* Durasi dan kehalusan animasi */
+}
+
+/* Keadaan elemen saat masuk viewport (visible & posisi normal) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* NAVBAR */
@@ -70,7 +91,7 @@ nav {
 /* HERO SECTION */
 .hero {
     height: 90vh;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1000&auto=format&fit=crop'); /* Gambar Ayam */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1000&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -299,7 +320,7 @@ footer {
 /* RESPONSIVE MOBILE */
 @media screen and (max-width: 768px) {
     .nav-links {
-        display: none; /* Bisa tambahkan JS untuk toggle burger menu jika mau lebih advanced */
+        display: none; 
     }
     
     .hero h1 {

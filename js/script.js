@@ -1,19 +1,41 @@
-// 1. WELCOME GREETING (Workflow Step 4)
-// Meminta nama user saat halaman dimuat
 document.addEventListener("DOMContentLoaded", function() {
+    // 1. WELCOME GREETING
     let userName = prompt("Halo! Siapakah nama Anda?", "Guest");
     
-    // Jika user klik cancel atau kosong, set default
     if (userName === null || userName.trim() === "") {
         userName = "Guest";
     }
 
-    // Masukkan nama ke dalam elemen HTML
     document.getElementById("user-name").innerText = userName;
 
     // Menjalankan jam real-time
     updateTime();
     setInterval(updateTime, 1000);
+
+    // 2. SCROLL ANIMATION (Intersection Observer)
+    // Setup observer untuk mendeteksi elemen saat masuk viewport
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // Animasi mulai saat 10% elemen terlihat
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Saat elemen masuk layar: Tambah class is-visible (muncul)
+                entry.target.classList.add('is-visible');
+            } else {
+                // Saat elemen keluar layar: Hapus class is-visible (hilang/reset)
+                // Ini membuat animasi berulang saat scroll atas/bawah
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    // Ambil semua elemen yang punya class 'animate-on-scroll'
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach((el) => observer.observe(el));
 });
 
 // Fungsi Update Jam
@@ -22,36 +44,27 @@ function updateTime() {
     document.getElementById("current-time").innerText = now.toUTCString();
 }
 
-// 2. FORM VALIDATION & SUBMISSION (Workflow Step 5)
+// 3. FORM VALIDATION & SUBMISSION
 function validateForm() {
-    // Ambil nilai dari input
     const nama = document.forms["messageForm"]["nama"].value;
     const tanggal = document.forms["messageForm"]["tanggal"].value;
     const gender = document.forms["messageForm"]["gender"].value;
     const pesan = document.forms["messageForm"]["pesan"].value;
 
-    // Validasi: Cek apakah ada yang kosong
     if (nama == "" || tanggal == "" || gender == "" || pesan == "") {
         alert("Mohon lengkapi semua data formulir!");
-        return false; // Mencegah submit
+        return false; 
     }
 
-    // Jika valid, tampilkan data di result box
     showResult(nama, tanggal, gender, pesan);
-    
-    // Mencegah form reload halaman (default behavior form submit)
     return false; 
 }
 
 function showResult(nama, tanggal, gender, pesan) {
-    // Sembunyikan text placeholder
     document.getElementById("placeholder-text").style.display = "none";
-    
-    // Tampilkan box hasil
     const resultBox = document.getElementById("result-box");
     resultBox.style.display = "block";
 
-    // Isi data ke dalam HTML
     document.getElementById("res-nama").innerText = nama;
     document.getElementById("res-tanggal").innerText = tanggal;
     document.getElementById("res-gender").innerText = gender;
